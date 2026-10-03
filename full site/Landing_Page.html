@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Diego Rustic | Handcrafted Furniture Warehouse</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rusticBrown: '#4A3525',
+                        rusticAmber: '#8C6239',
+                        rusticDark: '#261C14',
+                        rusticLight: '#F7F5F0',
+                        rusticGold: '#C5A059',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* ---- Photo stack "cards on top of one another" component ---- */
+        .stack {
+            position: relative;
+            height: 430px;
+        }
+        .stack img {
+            position: absolute;
+            width: 78%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.45);
+            border: 6px solid #F7F5F0;
+            transition: transform 0.45s ease, box-shadow 0.45s ease;
+        }
+        .stack img:nth-child(1) { top: 0;    left: 4%;  transform: rotate(-6deg); z-index: 1; }
+        .stack img:nth-child(2) { top: 90px; left: 22%; transform: rotate(4deg);  z-index: 2; }
+        .stack img:nth-child(3) { top: 150px;left: 6%;  transform: rotate(-2deg); z-index: 3; }
+
+        .stack:hover img:nth-child(1) { transform: rotate(-11deg) translate(-14px, -6px); }
+        .stack:hover img:nth-child(2) { transform: rotate(8deg) translate(14px, 4px); }
+        .stack:hover img:nth-child(3) { transform: rotate(-1deg) translate(0, 10px); }
+
+        /* Two-image variant used until a full set of 3 real photos is available per collection */
+        .stack-2 { height: 340px; }
+        .stack-2 img:nth-child(1) { top: 0;    left: 6%;  transform: rotate(-6deg); }
+        .stack-2 img:nth-child(2) { top: 90px; left: 26%; transform: rotate(5deg);  }
+        .stack-2:hover img:nth-child(1) { transform: rotate(-10deg) translate(-12px, -4px); }
+        .stack-2:hover img:nth-child(2) { transform: rotate(9deg) translate(12px, 4px); }
+
+        /* Three-card vertical fan: cards run downward, each overlapping the previous by a small corner */
+        .stack-3 { height: 790px; }
+        .stack-3 img { width: 72%; height: 260px; }
+        .stack-3 img:nth-child(1) { top: 0;     left: 3%;  transform: rotate(-5deg); z-index: 1; }
+        .stack-3 img:nth-child(2) { top: 240px; left: 25%; transform: rotate(4deg);  z-index: 2; }
+        .stack-3 img:nth-child(3) { top: 480px; left: 5%;  transform: rotate(-3deg); z-index: 3; }
+        .stack-3:hover img:nth-child(1) { transform: rotate(-9deg) translate(-12px, -6px); }
+        .stack-3:hover img:nth-child(2) { transform: rotate(8deg) translate(14px, 0); }
+        .stack-3:hover img:nth-child(3) { transform: rotate(-7deg) translate(-10px, 8px); }
+
+        @media (max-width: 767px) {
+            .stack { height: 380px; }
+            .stack img { width: 88%; height: 220px; }
+            .stack img:nth-child(1) { left: 4%; }
+            .stack img:nth-child(2) { left: 8%; }
+            .stack img:nth-child(3) { left: 2%; }
+            .stack-2 { height: 300px; }
+            .stack-3 { height: 700px; }
+            .stack-3 img { width: 82%; height: 220px; }
+            .stack-3 img:nth-child(1) { top: 0;     left: 2%; }
+            .stack-3 img:nth-child(2) { top: 210px; left: 14%; }
+            .stack-3 img:nth-child(3) { top: 420px; left: 4%; }
+        }
+    </style>
+</head>
+<body class="bg-rusticLight text-rusticDark">
+
+    <!-- Header / Navigation -->
+    <header class="bg-rusticDark text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <a href="#" class="text-2xl font-serif font-bold tracking-wide uppercase text-rusticLight">
+                    San Diego <span class="text-rusticAmber">Rustic</span>
+                </a>
+                <p class="text-xs tracking-widest text-gray-400 uppercase hidden sm:block">The Furniture Warehouse</p>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium tracking-wide">
+                <a href="#collections" class="hover:text-rusticAmber transition">Collections</a>
+				<a href="#Custom Tables" class="hover:text-rusticAmber transition">Custom Tables</a>
+                <a href="#about" class="hover:text-rusticAmber transition">Our Wood</a>
+                <a href="#reviews" class="hover:text-rusticAmber transition">Reviews</a>
+                <a href="#contact" class="hover:text-rusticAmber transition">Visit Us</a>
+            </nav>
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none text-2xl">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-zinc-800 text-white py-32 bg-cover bg-center" style="background-image: linear-gradient(rgba(38, 28, 20, 0.72), rgba(38, 28, 20, 0.72)), url('images/epoxy-river-blue.jpg');">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-rusticGold uppercase tracking-widest font-semibold text-sm">San Diego, California</span>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mt-3 mb-6 leading-tight">Authentic. Solid. Unique.</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-200 font-light">Direct importers of hand crafted live edge and epoxy tables, built from solid slabs. no particle board, no veneers, ever.</p>
+            <div class="space-x-4">
+                <a href="#collections" class="bg-rusticAmber hover:bg-rusticBrown text-white px-8 py-3 rounded font-semibold transition inline-block">View Our Tables</a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-rusticDark text-white px-8 py-3 rounded font-semibold transition inline-block">Visit Warehouse</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <section class="bg-rusticBrown text-white py-4 text-center text-sm font-medium tracking-wider">
+        📍 Open to the Public &nbsp;|&nbsp; Custom Orders Available &nbsp;|&nbsp; Massive San Diego Warehouse
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="container mx-auto px-6 py-20">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+            <span class="text-sm font-bold uppercase tracking-widest text-rusticAmber">Every Piece, One Of A Kind</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-rusticBrown mt-2 mb-4">Our Table Collections</h2>
+            <div class="w-24 h-1 bg-rusticAmber mx-auto mb-4"></div>
+            <p class="text-gray-600">Every table starts as a raw slab from our warehouse floor. From there, it's finished one of two ways.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+
+            <!-- Live Edge Stack -->
+            <div>
+                <div class="stack stack-3 mb-8">
+                    <img src="images/wood-table-with-u-shape-metal-legs.jpg" style="object-position: 50% 45%;" alt="Live edge slab dining table on black U-shaped metal legs">
+                    <img src="images/live-edge-walnut-slab.jpg" alt="Live edge walnut slab showing natural grain">
+                    <img src="images/live-edge-walnut-chairs.jpg" alt="Live edge walnut dining table with matching chairs">
+                </div>
+                <h3 class="text-2xl font-serif font-bold text-rusticBrown mb-2 text-center">Live Edge Natural Wood</h3>
+                <p class="text-gray-600 text-center max-w-md mx-auto">Solid slabs sanded smooth while keeping every natural curve, knot, and grain line intact. Thick, heavy, and built to be the centerpiece of the room.</p>
+            </div>
+
+            <!-- Epoxy Stack -->
+            <div>
+                <div class="stack stack-3 mb-8">
+                    <img src="images/epoxy-river-blue.jpg" alt="Deep blue epoxy river table with live edge wood">
+                    <img src="images/epoxy-burl-black.jpg" alt="Black epoxy table with burl wood inlay">
+                    <img src="images/river blue table suar wood.jpg" alt="Blue epoxy table with burl wood and metal legs">
+                </div>
+                <h3 class="text-2xl font-serif font-bold text-rusticBrown mb-2 text-center">Epoxy Tables</h3>
+                <p class="text-gray-600 text-center max-w-md mx-auto">Custom-poured, high-strength epoxy resin fused with live edge wood to replicate rivers, coastlines, cosmic styles or even patterns or like a unique engraving. They are then finished to a mirror-glass shine but we can also do a natural protective and non shiny coat.</p>
+            </div>
+
+        </div>
+		
+		<!-- custom sub section to choosing slab process -->
+		<div class="mt-20 bg-rusticDark text-white rounded-2xl px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-xl">
+            <div class="max-w-2xl">
+                <span class="text-xs font-bold uppercase tracking-widest text-rusticGold">Made For Your Space</span>
+                <h3 class="text-2xl md:text-3xl font-serif font-bold mt-2 mb-3">Choose your slab in person. We finish the table for you.</h3>
+                <p class="text-gray-300 leading-relaxed">See table styles, understand size-based pricing, and learn how a raw slab becomes a finished piece ready for pickup.</p>
+            </div>
+            <a href="custom-tables.html" class="shrink-0 bg-rusticAmber hover:bg-rusticGold text-white px-7 py-3 rounded font-semibold transition">How Custom Orders Work</a>
+        </div>
+    </section>
+
+    <!-- About / Value Prop -->
+    <section id="about" class="bg-white py-16 border-t border-b border-gray-200">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-sm font-bold uppercase tracking-widest text-rusticAmber">The Rustic Difference</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-rusticDark mt-2 mb-6">No Particle Board. <br>No Veneers. Ever.</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">Unlike big-box retail stores, our warehouse is packed with tables crafted from solid slabs, each one hand-selected, hand-finished and completely unique. Every knot, grain variance, and tool mark tells a story.</p>
+                <p class="text-gray-700 mb-6 leading-relaxed">We source directly from artisans overseas, skipping the middleman markup to bring authentic, heavy-duty statement pieces straight to Southern California.</p>
+                <div class="flex space-x-6">
+                    <div>
+                        <h4 class="text-2xl font-bold text-rusticAmber">100%</h4>
+                        <p class="text-xs uppercase tracking-wider text-gray-500">Solid Hardwood</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-rusticAmber">Custom</h4>
+                        <p class="text-xs uppercase tracking-wider text-gray-500">Live Edge & Epoxy</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="images/live-edge-walnut-slab.jpg" alt="Live edge walnut grain detail" class="rounded shadow-md w-full h-48 object-cover">
+                <img src="images/epoxy-river-blue.jpg" alt="Blue epoxy river table detail" class="rounded shadow-md w-full h-48 object-cover mt-6">
+            </div>
+        </div>
+    </section>
+
+    <!-- Yelp Review Section -->
+    <section id="reviews" class="bg-rusticDark text-white py-16 md:py-20 px-6">
+        <div class="max-w-4xl mx-auto relative">
+            <div class="absolute -right-4 -top-10 opacity-10 hidden lg:block">
+                <span class="text-9xl font-serif">&ldquo;</span>
+            </div>
+
+            <div class="flex items-center space-x-2 mb-6">
+                <span class="text-2xl font-bold text-red-500">Yelp</span>
+                <span class="text-yellow-400 text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="text-sm text-neutral-400 font-mono">(Integrated Feed)</span>
+            </div>
+
+            <h2 class="text-2xl md:text-3xl font-serif font-bold mb-8 text-rusticGold">What Our San Diego Neighbors Say</h2>
+
+            <div class="space-y-8">
+                <!-- Yelp Review 1 -->
+                <div class="border-l-4 border-rusticGold pl-4">
+                    <p class="italic text-lg text-neutral-200">
+                        "If you want real, heavy, authentic wood furniture without paying insane luxury retail showroom markups, go straight to their warehouse. We picked our own slab and they helped us configure exactly the metal legs we needed. It's the centerpiece of our home!"
+                    </p>
+                    <p class="mt-2 text-sm font-semibold text-rusticGold">&mdash; Mark T., San Diego, CA</p>
+                </div>
+
+                <!-- Yelp Review 2 -->
+                <div class="border-l-4 border-rusticGold pl-4">
+                    <p class="italic text-lg text-neutral-200">
+                        "Incredibly unique inventory. It honestly feels like walking through a museum of beautiful lumber. Got an amazing live-edge dining room table for an absolute steal compared to big box furniture chains."
+                    </p>
+                    <p class="mt-2 text-sm font-semibold text-rusticGold">&mdash; Sarah L., La Jolla, CA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warehouse & Contact Section -->
+    <section id="contact" class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Contact Details -->
+            <div class="flex flex-col justify-center">
+                <h2 class="text-3xl font-serif font-bold text-rusticBrown mb-6">Come Roam The Warehouse</h2>
+                <p class="text-gray-700 mb-8">Our inventory changes weekly. Come explore thousands of square feet filled with hidden treasures. Designers, contractors, and homeowners are all welcome.</p>
+
+                <div class="space-y-4 text-gray-700">
+                    <p class="flex items-center">
+                        <span class="mr-3 font-bold text-rusticAmber">📍 Address:</span>
+                        <span>34 E 17th st. <br> National City, CA 91950</span>
+                    </p>
+                    <p class="flex items-center">
+                        <span class="mr-3 font-bold text-rusticAmber">📞 Phone:</span>
+                        <span>(858) 999-9000</span>
+                    </p>
+                    <p class="flex items-center">
+                        <span class="mr-3 font-bold text-rusticAmber">⏰ Hours:</span>
+                        <span>Tue - Sun: 10am - 5pm </span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Simple Lead Form -->
+            <div class="bg-white p-8 rounded shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold font-serif mb-4 text-rusticDark">Looking for something specific?</h3>
+                <p class="text-sm text-gray-600 mb-6">Let us know what size, wood type, or style you're hunting for, and our warehouse team will alert you when it lands.</p>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Name</label>
+                        <input type="text" class="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:border-rusticAmber" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Email Address</label>
+                        <input type="email" class="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:border-rusticAmber" placeholder="name@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-600 mb-1">What are you looking for?</label>
+                        <textarea rows="3" class="w-full border border-gray-300 px-4 py-2 rounded focus:outline-none focus:border-rusticAmber" placeholder="e.g., 8ft live edge dining table, epoxy river coffee table..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-rusticBrown hover:bg-rusticDark text-white py-3 rounded font-semibold transition">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-rusticDark text-gray-400 py-8 border-t border-zinc-800">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <div class="flex justify-center space-x-6 mb-4 font-medium">
+                <a href="#" class="hover:text-white transition">YouTube</a>
+                <a href="#" class="hover:text-white transition">Facebook</a>
+                <a href="#" class="hover:text-white transition">Instagram</a>
+            </div>
+            <p>&copy; 2026 San Diego Rustic. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to order a custom live-edge table from San Diego Rustic, from choosing a slab in person to final pickup.">
+    <title>Custom Table Process | San Diego Rustic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bark: '#261C14',
+                        walnut: '#4A3525',
+                        clay: '#8C6239',
+                        parchment: '#F3EEE4',
+                        sand: '#D9C7A3',
+                        brass: '#C5A059'
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'Georgia', 'serif'],
+                        body: ['"DM Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background: #F3EEE4; }
+        .grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+        }
+        .reveal { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+        .reveal-delay { animation: rise .8s .16s cubic-bezier(.2,.7,.2,1) both; }
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(22px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal, .reveal-delay { animation: none; }
+        }
+    </style>
+</head>
+<body class="font-body text-bark antialiased">
+    <div class="fixed inset-0 grain pointer-events-none z-50 opacity-40" aria-hidden="true"></div>
+
+    <header class="bg-bark text-white sticky top-0 z-40 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-5">
+            <a href="index.html" class="leading-none" aria-label="San Diego Rustic home">
+                <span class="block font-display font-bold text-xl sm:text-2xl uppercase tracking-wide">San Diego <span class="text-clay">Rustic</span></span>
+                <span class="hidden sm:block text-[10px] uppercase tracking-[0.28em] text-white/50 mt-1">The Furniture Warehouse</span>
+            </a>
+            <nav class="flex items-center gap-5 sm:gap-8 text-sm font-semibold">
+                <a href="index.html" class="text-white/70 hover:text-white transition">Home</a>
+                <a href="#process" class="hidden sm:inline text-white/70 hover:text-white transition">Process</a>
+                <a href="#visit" class="bg-clay hover:bg-brass px-4 py-2.5 rounded-sm transition">Get Directions</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative overflow-hidden bg-bark text-white min-h-[640px] flex items-center">
+            <div class="absolute inset-0">
+                <img src="images/custom-finished-table.png" alt="Large handcrafted live-edge dining table with matching bench" class="w-full h-full object-cover object-center opacity-35">
+                <div class="absolute inset-0 bg-gradient-to-r from-bark via-bark/85 to-bark/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-bark via-transparent to-transparent"></div>
+            </div>
+            <div class="relative max-w-7xl mx-auto px-5 sm:px-8 py-24 w-full">
+                <div class="max-w-3xl reveal">
+                    <p class="text-brass text-xs sm:text-sm font-bold uppercase tracking-[0.28em] mb-5">Built around the slab you choose</p>
+                    <h1 class="font-display text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95] tracking-tight">Your table starts<br><span class="text-sand italic">at the warehouse.</span></h1>
+                    <p class="mt-7 text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl">Choose the table style you love, visit us to select the actual wood slab, and let our team turn it into a finished piece made for your room.</p>
+                    <a href="#pricing" class="inline-flex items-center gap-3 mt-9 border-b border-brass pb-2 text-sm font-bold uppercase tracking-widest hover:text-brass transition">
+                        See pricing details
+                        <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 9 6 6 6-6"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="max-w-7xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
+            <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-end">
+                <div>
+                    <p class="text-clay text-xs font-bold uppercase tracking-[0.25em] mb-4">Pricing</p>
+                    <h2 class="font-display text-4xl sm:text-5xl font-bold leading-tight text-walnut">The price is based on the size of your table.</h2>
+                </div>
+                <div class="border-l-2 border-clay pl-6 sm:pl-9">
+                    <p class="text-lg text-walnut/80 leading-relaxed">Each slab has its own dimensions, grain, and character. Your final price depends on the table size you need and the slab you select in person. Our warehouse team reviews the options and price with you before the work begins.</p>
+                </div>
+            </div>
+
+            <figure class="mt-14 sm:mt-20 reveal-delay">
+                <div class="bg-bark p-2 sm:p-3 shadow-[0_28px_80px_-30px_rgba(38,28,20,.55)] rotate-[-0.5deg]">
+                    <img src="images/custom-table-styles.png" alt="Three examples showing natural and blue epoxy live-edge table styles" class="w-full h-auto block">
+                </div>
+                <figcaption class="mt-5 flex flex-col sm:flex-row justify-between gap-2 text-sm text-walnut/65">
+                    <span>Natural live edge and custom epoxy examples</span>
+                    <span class="font-semibold text-clay">Every piece is one of a kind</span>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="process" class="bg-white border-y border-walnut/10">
+            <div class="max-w-7xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
+                <div class="max-w-2xl mb-14 sm:mb-20">
+                    <p class="text-clay text-xs font-bold uppercase tracking-[0.25em] mb-4">The procedure</p>
+                    <h2 class="font-display text-4xl sm:text-6xl font-bold text-walnut">From raw slab to your finished table.</h2>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 sm:mb-28">
+                    <div class="relative max-w-xl">
+                        <div class="absolute -inset-4 sm:-inset-6 border border-clay/25 translate-x-5 translate-y-5" aria-hidden="true"></div>
+                        <img src="images/custom-slab-selection.png" alt="Natural wood slabs available for customers to choose in the warehouse" class="relative w-full max-h-[720px] object-cover shadow-2xl">
+                    </div>
+                    <ol class="space-y-9">
+                        <li class="grid grid-cols-[3rem_1fr] gap-5">
+                            <span class="font-display text-4xl text-clay">01</span>
+                            <div><h3 class="font-display text-2xl font-bold text-walnut mb-2">Choose a table style</h3><p class="text-walnut/70 leading-relaxed">Start by deciding on the shape, look, and approximate size that fits your space.</p></div>
+                        </li>
+                        <li class="grid grid-cols-[3rem_1fr] gap-5">
+                            <span class="font-display text-4xl text-clay">02</span>
+                            <div><h3 class="font-display text-2xl font-bold text-walnut mb-2">Visit and pick your slab</h3><p class="text-walnut/70 leading-relaxed">Come to the warehouse in person to see the wood, compare the grain, and choose the actual slab used for your table.</p></div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div class="lg:order-2 relative">
+                        <img src="images/custom-finished-table.png" alt="Finished custom live-edge dining table ready for the customer" class="w-full shadow-2xl">
+                        <div class="absolute -bottom-5 -left-3 sm:-left-6 bg-clay text-white px-5 py-4 font-display font-bold text-xl shadow-xl">Made for your room</div>
+                    </div>
+                    <ol class="space-y-9 lg:order-1">
+                        <li class="grid grid-cols-[3rem_1fr] gap-5">
+                            <span class="font-display text-4xl text-clay">03</span>
+                            <div><h3 class="font-display text-2xl font-bold text-walnut mb-2">We furnish and finish it</h3><p class="text-walnut/70 leading-relaxed">After you select the slab, our team prepares, furnishes, and finishes the table to bring out the wood’s natural character.</p></div>
+                        </li>
+                        <li class="grid grid-cols-[3rem_1fr] gap-5">
+                            <span class="font-display text-4xl text-clay">04</span>
+                            <div><h3 class="font-display text-2xl font-bold text-walnut mb-2">Pick it up at a later date</h3><p class="text-walnut/70 leading-relaxed">The work takes time. We contact you when your finished table is ready to be picked up from the warehouse.</p></div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="visit" class="bg-bark text-white">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-[0.8fr_1.2fr]">
+                <div class="px-5 sm:px-8 lg:pl-8 xl:pl-0 py-16 sm:py-20 lg:pr-16 flex flex-col justify-center">
+                    <p class="text-brass text-xs font-bold uppercase tracking-[0.25em] mb-4">In-person selection required</p>
+                    <h2 class="font-display text-4xl sm:text-5xl font-bold leading-tight mb-6">See the slabs before choosing yours.</h2>
+                    <p class="text-white/65 leading-relaxed mb-8">Custom table orders begin at our warehouse. Tap the map or the directions button to open your GPS navigation.</p>
+                    <address class="not-italic text-lg mb-8 text-sand">34 E 17th St, Suite A<br>National City, CA 91950</address>
+                    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=34+E+17th+St+Suite+A+National+City+CA+91950" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-3 bg-clay hover:bg-brass px-6 py-3.5 font-bold transition focus:outline-none focus:ring-2 focus:ring-sand focus:ring-offset-2 focus:ring-offset-bark">
+                        Open GPS Directions
+                        <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+                    </a>
+                </div>
+                <div class="relative min-h-[440px] bg-walnut">
+                    <iframe title="Map showing San Diego Rustic in National City" src="https://www.google.com/maps?q=34+E+17th+St+Suite+A+National+City+CA+91950&amp;output=embed" class="absolute inset-0 w-full h-full border-0 grayscale-[20%] contrast-[1.05]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=34+E+17th+St+Suite+A+National+City+CA+91950" target="_blank" rel="noopener noreferrer" class="absolute bottom-5 right-5 z-10 bg-bark text-white px-5 py-3 font-semibold shadow-xl hover:bg-clay transition focus:outline-none focus:ring-2 focus:ring-sand">Open in Maps</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#1d150f] text-white/50 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row gap-3 justify-between text-sm">
+            <p>&copy; 2026 San Diego Rustic. All rights reserved.</p>
+            <a href="index.html" class="hover:text-white transition">Return to the main website</a>
+        </div>
+    </footer>
+</body>
+</html>
