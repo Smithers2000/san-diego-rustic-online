@@ -1,0 +1,156 @@
+{
+  "project": {
+    "type": "freelance/internship web development project",
+    "client": "San Diego Rustic",
+    "domain": "sandiegorustic.com",
+    "project_status_at_last_discussion": "Client purchased GoDaddy hosting and developer was transitioning from Netlify to GoDaddy hosting",
+    "developer_experience": "Second substantial web development project; strong CS background but limited formal web development experience"
+  },
+
+  "developer_background": {
+    "education": "CS student transferring to UCSD",
+    "prior_coursework": [
+      "Introductory CS I",
+      "Introductory CS II",
+      "Data Structures",
+      "Java",
+      "Computer Architecture/Assembly",
+      "AI",
+      "Mobile Application Development",
+      "SQL/MySQL"
+    ],
+    "web_background": [
+      "Self-taught HTML",
+      "Some CSS",
+      "Some JavaScript",
+      "YouTube/tutorial-based web development",
+      "Personal web projects"
+    ],
+    "missing_formal_experience": [
+      "No formal web development course",
+      "Limited production hosting experience",
+      "Limited DNS experience",
+      "Limited cPanel experience",
+      "Limited professional deployment experience",
+      "Limited Tailwind CSS experience"
+    ]
+  },
+
+  "original_architecture": {
+    "domain_registrar": "GoDaddy",
+    "hosting": "Netlify",
+    "development": [
+      "AI website builders",
+      "Lovable",
+      "AI coding assistants",
+      "HTML/CSS/JavaScript"
+    ],
+    "workflow": "Generate/download website code, modify it with AI, deploy to Netlify, connect the GoDaddy domain"
+  },
+
+  "problem": {
+    "issue": "Developer could not properly configure the client's GoDaddy domain because the developer did not have access to the client's GoDaddy account",
+    "authentication": "GoDaddy account required 2FA through the client",
+    "client_role": "Very hands-off and gave developer significant freedom",
+    "developer_concern": "Did not want to create an unreliable workaround or charge the client for infrastructure that might not work"
+  },
+
+  "go_daddy_event": {
+    "what_happened": "During a support call, a GoDaddy representative sold the client a hosting package",
+    "approximate_cost": "$500",
+    "client_decision": "Client purchased the GoDaddy hosting",
+    "result": "Client now has both the domain and GoDaddy hosting",
+    "developer_decision": "Rather than undoing the purchase, adapt the project architecture to use the GoDaddy hosting"
+  },
+
+  "core_architecture_lesson": {
+    "domain": "The web address, e.g. sandiegorustic.com",
+    "hosting": "The server/platform that serves the website",
+    "source_code": "HTML/CSS/JavaScript and other project files",
+    "key_principle": "Domain, hosting, and source code are separate layers",
+    "important_principle": "Source code should remain independent from the hosting provider"
+  },
+
+  "recommended_architecture": {
+    "source_control": "Git",
+    "remote_repository": "GitHub",
+    "editor": "VS Code",
+    "hosting_for_this_project": "GoDaddy/cPanel",
+    "domain_registrar": "GoDaddy",
+    "ai_role": "Development assistant, not owner of the project",
+    "workflow": [
+      "Client requirements",
+      "Architecture/design decisions",
+      "Local development in VS Code",
+      "Git version control",
+      "GitHub backup/source repository",
+      "Testing",
+      "Deployment to GoDaddy",
+      "DNS/domain configuration",
+      "Maintenance"
+    ]
+  },
+
+  "netlify": {
+    "status": "Not necessarily needed for this project",
+    "lesson": "Netlify and GoDaddy are hosting/deployment options rather than competing definitions of the project",
+    "future_use": "Netlify can still be useful for future projects",
+    "principle": "The same source code can potentially be deployed to different hosting platforms"
+  },
+
+  "git_github": {
+    "importance": "High",
+    "reason": "The website should not exist only inside Netlify, an AI builder, or a hosting account",
+    "desired_model": "Local Git repository + GitHub remote repository",
+    "benefits": [
+      "Backup",
+      "Version history",
+      "Ability to revert changes",
+      "Ability to switch hosting providers",
+      "Professional development workflow"
+    ]
+  },
+
+  "ai_philosophy": {
+    "principle": "AI should assist implementation rather than make architectural decisions autonomously",
+    "developer_responsibility": [
+      "Requirements",
+      "Architecture",
+      "Technology choices",
+      "Code ownership",
+      "Testing",
+      "Deployment decisions",
+      "Maintenance"
+    ],
+    "preferred_workflow": "Decide what needs to be built, ask AI for implementation help or explanations, understand the generated code, test it, modify it, and commit it"
+  },
+
+  "learning_goal": {
+    "main_goal": "Develop a formal/repeatable web development workflow instead of relying on ad-hoc experimentation",
+    "secondary_goal": "Learn enough web infrastructure to independently make architecture and deployment decisions",
+    "learning_style": "Use AI to accelerate learning and implementation while retaining understanding and responsibility for the resulting system",
+    "important_topics": [
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "JavaScript",
+      "Git",
+      "GitHub",
+      "DNS",
+      "Domains",
+      "Hosting",
+      "cPanel",
+      "Deployment",
+      "Web architecture",
+      "Client requirements"
+    ]
+  },
+
+  "important_context_for_future_ai": {
+    "do_not_assume": "The user is a beginner programmer overall",
+    "instead_understand": "The user has a solid CS foundation but is relatively inexperienced with professional web development and web infrastructure",
+    "desired_role": "The user wants to act as the developer, architect, and deployment administrator while using AI as a powerful assistant",
+    "teaching_preference": "Explain the underlying architecture and reasoning, not merely provide instructions",
+    "current_learning_question": "How to establish a professional, repeatable workflow for building, versioning, deploying, and maintaining client websites"
+  }
+}
