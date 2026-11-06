@@ -9,5 +9,8 @@ project:
 status:
   current deployment includes 10 images and the current index.html renamed to accomodate netlify and godaddy.
   I fixed index.html naming guidlines.
-  The custom tables page is uploaded but not connected. (needs attention)
+  The custom tables page is uploaded and connected. 
+  the netlify build settings have being modified to use the subfolder "full site"
+  the netflify was also set to auto deploy and build for faster response time and to ensure the the current changes are published to date
+  as of 3:30pm to date nov-6-2026 will un-autopublish to add changes the client wanted.
     
