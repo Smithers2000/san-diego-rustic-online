@@ -11,6 +11,13 @@ status:
   I fixed index.html naming guidlines.
   The custom tables page is uploaded and connected. 
   the netlify build settings have being modified to use the subfolder "full site"
-  the netflify was also set to auto deploy and build for faster response time and to ensure the the current changes are published to date
-  as of 3:30pm to date nov-6-2026 will un-autopublish to add changes the client wanted.
+  the netflify was also set to auto deploy and build for faster response time and to ensure the the current changes are published to date.
+  As of 3:30pm to date nov-6-2026 will un-autopublish to add changes the client wanted.
+
+  Todo: 
+  - add the photos to the site for them choosing the legs
+  - add a gap and adjust paragraph on index.html that takes them to the custom tables webpage, 
+    we want it to look smoother.  
+
+
     
