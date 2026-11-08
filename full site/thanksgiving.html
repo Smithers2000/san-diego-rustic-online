@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The River Table Thanksgiving</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: the whole page is a long dining table. A blue epoxy river runs between walnut slabs, and every section sits on one side of it. */
+:root {
+  --walnut: #2b1a10;
+  --walnut-2: #3b2415;
+  --river: #1b6fe0;
+  --river-deep: #0a2f73;
+  --river-glint: #7fd0ff;
+  --pumpkin: #f08a24;
+  --bone: #f3ead9;
+  --bone-dim: #cdbfa8;
+  --font-display: "Bricolage Grotesque", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--walnut);
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; }
+h3 { font-size: 1.25rem; font-weight: 800; }
+p { margin: 0; }
+.label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--river-glint); }
+a { color: var(--river-glint); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--pumpkin); outline-offset: 3px; }
+
+/* HERO */
+.hero { padding-block: 56px 24px; display: grid; gap: 32px; grid-template-columns: 1.05fr 1fr; align-items: center; }
+.hero h1 { font-size: clamp(3rem, 11vw, 6.6rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.035em; }
+.hero h1 span { color: var(--river-glint); display: block; }
+.hero .lede { margin-top: 20px; max-width: 34ch; color: var(--bone-dim); font-size: 1.1rem; }
+.count { margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap; }
+.count div { background: var(--walnut-2); border: 1px solid #5a3b25; border-radius: 6px; padding: 10px 14px; min-width: 76px; }
+.count b { display: block; font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+.count small { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bone-dim); }
+.count-note { margin-top: 12px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--bone-dim); }
+.frame { position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 46% 54% 42% 58% / 38% 42% 58% 62%; overflow: hidden; background: linear-gradient(160deg, var(--river-glint), var(--river) 40%, var(--river-deep)); box-shadow: 0 30px 60px rgba(0,0,0,.45); }
+.frame img { width: 100%; height: 100%; object-fit: cover; }
+.credit { font-family: var(--font-mono); font-size: 0.72rem; color: var(--bone-dim); margin-top: 12px; text-align: center; }
+
+/* RIVER DIVIDER */
+.river { display: block; width: calc(100% + 32px); margin-left: -16px; height: 70px; }
+.river path { fill: var(--river); }
+.river .glint { fill: none; stroke: var(--river-glint); stroke-width: 2; stroke-dasharray: 90 400; opacity: .8; animation: flow 7s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -980; } }
+
+section { padding-block: 56px; }
+.head { display: grid; gap: 10px; margin-bottom: 28px; max-width: 46ch; }
+.head p { color: var(--bone-dim); }
+
+/* MENU */
+.menu { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.dish { background: var(--walnut-2); border: 1px solid #5a3b25; border-radius: 8px; padding: 18px; display: grid; gap: 8px; align-content: start; }
+.dish .label { color: var(--pumpkin); }
+.dish p { color: var(--bone-dim); font-size: 0.95rem; }
+
+/* TOOL PANELS */
+.panel { background: var(--river-deep); border: 1px solid #1d4f9f; border-radius: 10px; padding: clamp(18px, 4vw, 30px); display: grid; gap: 18px; }
+.split { display: grid; gap: 22px; grid-template-columns: 1fr 1fr; }
+.split > * { min-width: 0; }
+button, input, textarea { font: inherit; }
+.btn { background: var(--pumpkin); color: #2a1300; border: 0; border-radius: 6px; padding: 12px 18px; font-weight: 600; cursor: pointer; justify-self: start; }
+.btn:hover { background: #ffa347; }
+.btn.alt { background: transparent; color: var(--bone); border: 1px solid var(--river-glint); }
+.btn.alt:hover { background: rgba(127,208,255,.15); }
+.field { display: grid; gap: 6px; }
+.field input, .field textarea { background: #061a42; color: var(--bone); border: 1px solid #2b62bb; border-radius: 6px; padding: 10px 12px; width: 100%; }
+.thanks { min-height: 5.5em; font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; line-height: 1.1; text-wrap: balance; }
+.roast-out { font-family: var(--font-display); font-weight: 800; font-size: 2rem; line-height: 1.05; }
+.roast-sub { color: var(--bone-dim); font-size: 0.95rem; }
+
+/* SEATING */
+.tbl { display: grid; gap: 0; }
+.seats { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-around; padding: 10px 6px; min-height: 52px; }
+.seat { background: var(--bone); color: #2a1a0e; border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: 0.95rem; }
+.slab { height: 74px; background: linear-gradient(var(--walnut-2) 0 24%, transparent 24% 76%, var(--walnut-2) 76%); position: relative; border-radius: 10px; }
+.slab::before { content: ""; position: absolute; left: 0; right: 0; top: 24%; bottom: 24%; background: linear-gradient(100deg, var(--river-deep), var(--river) 30%, var(--river-glint) 52%, var(--river) 70%, var(--river-deep)); background-size: 200% 100%; animation: shimmer 9s ease-in-out infinite alternate; }
+@keyframes shimmer { to { background-position: 100% 0; } }
+.sample { font-family: var(--font-mono); font-size: 0.75rem; color: var(--bone-dim); }
+
+/* PIE POLL */
+.pies { display: grid; gap: 10px; }
+.pie { display: grid; grid-template-columns: 7.5em 1fr 2.2em; gap: 12px; align-items: center; background: transparent; border: 0; color: inherit; text-align: left; padding: 6px 0; cursor: pointer; }
+.pie .bar { height: 22px; background: #061a42; border-radius: 4px; overflow: hidden; }
+.pie .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--pumpkin), #ffc47a); transition: width .4s ease; }
+.pie b { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; text-align: right; }
+
+/* GALLERY */
+.gallery { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.gallery figure { margin: 0; display: grid; gap: 8px; }
+.ph { aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; background: linear-gradient(160deg, var(--river), var(--river-deep)); }
+.ph img { width: 100%; height: 100%; object-fit: cover; }
+figcaption { font-family: var(--font-mono); font-size: 0.78rem; color: var(--bone-dim); }
+
+/* FOOT */
+.visit { display: grid; gap: 10px; max-width: 48ch; }
+.visit address { font-style: normal; }
+footer { padding-block: 30px 50px; color: var(--bone-dim); font-size: 0.85rem; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 36px; }
+  .frame { max-width: 360px; justify-self: center; width: 100%; }
+  .split { grid-template-columns: 1fr; }
+  .pie { grid-template-columns: 6.2em 1fr 2em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .river .glint, .slab::before { animation: none; }
+  .pie .bar i { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div>
+    <p class="label">San Diego &middot; Thursday, Nov 26</p>
+    <h1>Gather round <span>the river table</span></h1>
+    <p class="lede">Dinner is better when everyone fits at one long table with a blue stripe down the middle. This page helps you seat the family, time the bird and settle the pie question.</p>
+    <div class="count" id="count" aria-live="off">
+      <div><b id="cd-d">--</b><small>days</small></div>
+      <div><b id="cd-h">--</b><small>hours</small></div>
+      <div><b id="cd-m">--</b><small>min</small></div>
+      <div><b id="cd-s">--</b><small>sec</small></div>
+    </div>
+    <p class="count-note" id="cd-note">until Thanksgiving dinner</p>
+  </div>
+  <div>
+    <div class="frame"><img id="hero-img" src="https://sandiegorustic.com/images/epoxy-river-blue.jpg" alt="Deep blue epoxy river table with live edge wood" loading="eager"></div>
+    <p class="credit">Photo: San Diego Rustic</p>
+  </div>
+</header>
+
+<div class="wrap" aria-hidden="true">
+  <svg class="river" viewBox="0 0 1000 70" preserveAspectRatio="none"><path d="M0 35 C 120 5, 220 65, 340 35 S 560 5, 680 35 S 880 65, 1000 30 L1000 70 L0 70 Z"/><path class="glint" d="M0 35 C 120 5, 220 65, 340 35 S 560 5, 680 35 S 880 65, 1000 30"/></svg>
+</div>
+
+<main class="wrap">
+
+  <section aria-labelledby="menu-h">
+    <div class="head">
+      <p class="label">What&rsquo;s on the table</p>
+      <h2 id="menu-h">The lineup</h2>
+      <p>Six dishes, assigned by how much counter space each one takes.</p>
+    </div>
+    <div class="menu">
+      <article class="dish"><span class="label">Center</span><h3>The turkey</h3><p>Rests 20 to 30 minutes under foil while everyone hovers.</p></article>
+      <article class="dish"><span class="label">Left of center</span><h3>Stuffing</h3><p>Crispy corners go to whoever asked first.</p></article>
+      <article class="dish"><span class="label">Right of center</span><h3>Mashed potatoes</h3><p>A butter well is mandatory.</p></article>
+      <article class="dish"><span class="label">Near the river</span><h3>Cranberry sauce</h3><p>Deep red against deep blue. Lovely, and nobody plans it.</p></article>
+      <article class="dish"><span class="label">Far end</span><h3>Green beans</h3><p>Technically a vegetable. Technically.</p></article>
+      <article class="dish"><span class="label">Sideboard</span><h3>The pies</h3><p>Four contenders. See the poll below.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="tools-h">
+    <div class="head">
+      <p class="label">Kitchen tools</p>
+      <h2 id="tools-h">Time it, thank it</h2>
+    </div>
+    <div class="split">
+      <div class="panel">
+        <p class="label">Turkey timer</p>
+        <div class="field">
+          <label for="lbs">Turkey weight (pounds)</label>
+          <input id="lbs" type="number" min="4" max="24" step="0.5" value="14" inputmode="decimal">
+        </div>
+        <div>
+          <p class="roast-out" id="roast-out">3&frac34; to 4&frac14; hours</p>
+          <p class="roast-sub" id="roast-sub">Unstuffed at 325&deg;F. Done at 165&deg;F in the thickest part of the breast and thigh.</p>
+        </div>
+      </div>
+      <div class="panel">
+        <p class="label">Pass the gravy</p>
+        <p class="thanks" id="thanks" aria-live="polite">What are you thankful for this year?</p>
+        <button class="btn" id="thanks-btn" type="button">Pass it along</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="seat-h">
+    <div class="head">
+      <p class="label">Seating chart</p>
+      <h2 id="seat-h">Who sits where</h2>
+      <p>One name per line. Shuffle until the table looks right.</p>
+    </div>
+    <div class="panel">
+      <div class="split">
+        <div class="field">
+          <label for="names">Guests</label>
+          <textarea id="names" rows="8">Grandma Rose
+Uncle Rich
+Cousin Dee
+Aunt Marisol
+Big Mike
+Little Mike
+Nana Jo
+The neighbor with the casserole</textarea>
+          <span class="sample">Example guests. Replace them with yours.</span>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:4px">
+            <button class="btn" id="shuffle" type="button">Shuffle seats</button>
+            <button class="btn alt" id="seat" type="button">Update chart</button>
+          </div>
+        </div>
+        <div class="tbl" aria-label="Seating chart">
+          <div class="seats" id="seats-top"></div>
+          <div class="slab" aria-hidden="true"></div>
+          <div class="seats" id="seats-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="pie-h">
+    <div class="head">
+      <p class="label">The vote</p>
+      <h2 id="pie-h">Which pie wins?</h2>
+      <p>Tap a pie to cast a vote. Counts live on this page only, so tally the real ones at the table.</p>
+    </div>
+    <div class="panel pies" id="pies"></div>
+  </section>
+
+  <section aria-labelledby="gal-h">
+    <div class="head">
+      <p class="label">Tables worth gathering at</p>
+      <h2 id="gal-h">Built from solid slabs</h2>
+      <p>Handcrafted live edge and epoxy tables from the San Diego Rustic warehouse in National City.</p>
+    </div>
+    <div class="gallery">
+      <figure><div class="ph"><img src="https://sandiegorustic.com/images/river%20blue%20table%20suar%20wood.jpg" alt="Blue epoxy table with burl wood and metal legs" loading="lazy"></div><figcaption>Blue epoxy river, suar wood</figcaption></figure>
+      <figure><div class="ph"><img src="https://sandiegorustic.com/images/epoxy-burl-black.jpg" alt="Black epoxy table with burl wood inlay" loading="lazy"></div><figcaption>Black epoxy with burl inlay</figcaption></figure>
+      <figure><div class="ph"><img src="https://sandiegorustic.com/images/live-edge-walnut-chairs.jpg" alt="Live edge walnut dining table with matching chairs" loading="lazy"></div><figcaption>Live edge walnut with chairs</figcaption></figure>
+      <figure><div class="ph"><img src="https://sandiegorustic.com/images/wood-table-with-u-shape-metal-legs.jpg" alt="Live edge slab dining table on black U-shaped metal legs" loading="lazy"></div><figcaption>Live edge slab, U-shaped legs</figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="visit-h">
+    <div class="visit">
+      <p class="label">Next year&rsquo;s table</p>
+      <h2 id="visit-h">Pick your slab in person</h2>
+      <address>
+        San Diego Rustic<br>
+        34 E 17th St, National City, CA 91950<br>
+        Tue &ndash; Sun, 10am &ndash; 5pm<br>
+        (858) 999-9000
+      </address>
+      <p><a href="https://sandiegorustic.com" target="_blank" rel="noopener">sandiegorustic.com</a></p>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" aria-hidden="true">
+  <svg class="river" viewBox="0 0 1000 70" preserveAspectRatio="none" style="transform:scaleY(-1)"><path d="M0 35 C 150 65, 260 5, 400 35 S 640 65, 760 35 S 900 10, 1000 38 L1000 70 L0 70 Z"/></svg>
+</div>
+<footer class="wrap">Happy Thanksgiving. Photos hotlinked from San Diego Rustic; this page is an independent fan page and stores nothing on your device.</footer>
+
+<script>
+(function () {
+  // Photos: hide a broken image so the blue placeholder behind it shows.
+  document.querySelectorAll('img').forEach(function (img) {
+    img.addEventListener('error', function () { img.style.display = 'none'; });
+  });
+
+  // Countdown to the fourth Thursday of November, 5:00 pm local.
+  function fourthThursday(year) {
+    var d = new Date(year, 10, 1, 17, 0, 0);
+    var offset = (4 - d.getDay() + 7) % 7;
+    d.setDate(1 + offset + 21);
+    return d;
+  }
+  var els = { d: cd('d'), h: cd('h'), m: cd('m'), s: cd('s') };
+  function cd(k) { return document.getElementById('cd-' + k); }
+  function tick() {
+    var now = new Date();
+    var target = fourthThursday(now.getFullYear());
+    var sameDay = now.toDateString() === target.toDateString();
+    if (now > target && !sameDay) target = fourthThursday(now.getFullYear() + 1);
+    var note = document.getElementById('cd-note');
+    if (sameDay) {
+      els.d.textContent = els.h.textContent = els.m.textContent = els.s.textContent = '00';
+      note.textContent = 'It is Thanksgiving. Go eat.';
+      return;
+    }
+    var diff = Math.max(0, target - now);
+    var s = Math.floor(diff / 1000);
+    els.d.textContent = Math.floor(s / 86400);
+    els.h.textContent = String(Math.floor(s % 86400 / 3600)).padStart(2, '0');
+    els.m.textContent = String(Math.floor(s % 3600 / 60)).padStart(2, '0');
+    els.s.textContent = String(s % 60).padStart(2, '0');
+    note.textContent = 'until Thanksgiving dinner on ' + target.toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Turkey timer, using the USDA 325°F unstuffed chart.
+  var chart = [
+    [8, 12, '2¾ to 3 hours'],
+    [12, 14, '3 to 3¾ hours'],
+    [14, 18, '3¾ to 4¼ hours'],
+    [18, 20, '4¼ to 4½ hours'],
+    [20, 24, '4½ to 5 hours']
+  ];
+  var lbs = document.getElementById('lbs');
+  var out = document.getElementById('roast-out');
+  var sub = document.getElementById('roast-sub');
+  function roast() {
+    var w = parseFloat(lbs.value);
+    if (!(w > 0)) { out.textContent = 'Enter a weight'; return; }
+    if (w < 8) { out.textContent = 'Under 8 lb'; sub.textContent = 'A small bird or turkey breast cooks faster. Start checking the temperature after about 2 hours. Done at 165°F.'; return; }
+    if (w > 24) { out.textContent = 'Over 24 lb'; sub.textContent = 'That is a big bird. Plan on more than 5 hours at 325°F and trust the thermometer. Done at 165°F.'; return; }
+    for (var i = 0; i < chart.length; i++) {
+      if (w <= chart[i][1]) { out.textContent = chart[i][2]; break; }
+    }
+    sub.textContent = 'Unstuffed at 325°F. Done at 165°F in the thickest part of the breast and thigh, then rest 20 to 30 minutes.';
+  }
+  lbs.addEventListener('input', roast); roast();
+
+  // Gratitude generator.
+  var lines = [
+    'Leftover pie for breakfast.',
+    'A table big enough for the whole family.',
+    'Whoever remembered the can opener.',
+    'The cousin who does the dishes without being asked.',
+    'Gravy, in all its forms.',
+    'Football on mute in the other room.',
+    'A long table with a blue river down the middle.',
+    'Stretchy pants.',
+    'The one recipe that has not changed in 40 years.',
+    'Everyone arriving on time. Just kidding. Everyone arriving.',
+    'Warm rolls, and enough butter to match.',
+    'The group chat about who is bringing ice.'
+  ];
+  var last = -1;
+  document.getElementById('thanks-btn').addEventListener('click', function () {
+    var i;
+    do { i = Math.floor(Math.random() * lines.length); } while (i === last);
+    last = i;
+    document.getElementById('thanks').textContent = lines[i];
+  });
+
+  // Seating chart.
+  var names = document.getElementById('names');
+  var top = document.getElementById('seats-top');
+  var bottom = document.getElementById('seats-bottom');
+  function guests() {
+    return names.value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+  function render(list) {
+    top.textContent = ''; bottom.textContent = '';
+    list.forEach(function (n, i) {
+      var el = document.createElement('span');
+      el.className = 'seat';
+      el.textContent = n;
+      (i % 2 === 0 ? top : bottom).appendChild(el);
+    });
+  }
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  document.getElementById('seat').addEventListener('click', function () { render(guests()); });
+  document.getElementById('shuffle').addEventListener('click', function () {
+    var list = shuffle(guests());
+    names.value = list.join('\n');
+    render(list);
+  });
+  render(guests());
+
+  // Pie poll (in memory only).
+  var pies = [['Pumpkin', 0], ['Pecan', 0], ['Apple', 0], ['Sweet potato', 0]];
+  var box = document.getElementById('pies');
+  function drawPies() {
+    var max = Math.max(1, Math.max.apply(null, pies.map(function (p) { return p[1]; })));
+    box.textContent = '';
+    pies.forEach(function (p, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'pie';
+      b.setAttribute('aria-label', 'Vote for ' + p[0] + ' pie, currently ' + p[1]);
+      var n = document.createElement('span'); n.textContent = p[0];
+      var bar = document.createElement('span'); bar.className = 'bar';
+      var fill = document.createElement('i'); fill.style.width = (p[1] / max * 100) + '%';
+      bar.appendChild(fill);
+      var c = document.createElement('b'); c.textContent = p[1];
+      b.appendChild(n); b.appendChild(bar); b.appendChild(c);
+      b.addEventListener('click', function () { pies[i][1]++; drawPies(); });
+      box.appendChild(b);
+    });
+  }
+  drawPies();
+})();
+</script>
+</body>
+</html>
